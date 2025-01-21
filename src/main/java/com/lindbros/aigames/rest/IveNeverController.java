@@ -2,15 +2,19 @@ package com.lindbros.aigames.rest;
 
 import com.lindbros.aigames.service.IveNeverService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
 @RestController
 @RequestMapping("/ive-never")
 public class IveNeverController {
 
-    private final IveNeverService iveNeverService;
+    @Autowired
+    private IveNeverService iveNeverService;
 
     @GetMapping("/get")
     public String get(@RequestBody IveNeverBody body) {
